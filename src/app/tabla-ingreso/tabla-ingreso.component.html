@@ -1,0 +1,58 @@
+<app-nav></app-nav>
+  
+    <div class="d-flex flex-row bd-highlight mb-3 justify-content-around" >
+  
+    <div class="input-group mb-3 col-sm-3" >
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Ficha</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div>
+  
+    <div class="input-group mb-3 col-sm-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Edad</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div>
+  
+    <div class="input-group mb-3 col-sm-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Jornada</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div>
+  
+    <button type="button" class="btn btn-secondary col-sm-1 mb-3">Buscar</button>
+  
+  </div>
+  
+    <table class="table table-hover" >
+      <thead >
+        <tr>
+         
+          <th scope="col">jornada</th>
+          <th scope="col">nombres</th>
+          <th scope="col">apellidos</th>
+          <th scope="col">edad</th>
+          <th scope="col">ficha</th>
+          <th scope="col">fecha</th>
+          <th scope="col">Hora Entrada</th>
+          <th scope="col">Hora Salida</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let persona of arreglo">
+        <tr>
+          <td>{{persona.jornada}}</td>
+          <td>{{persona.nombres}}</td>
+          <td>{{persona.apellidos}}</td>
+          <td>{{persona.ficha}}</td>
+          <td>{{persona.fecha}}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  
+    <button type="button" class="btn btn-secondary col-sm-3 mb-3" [routerLink]="['/tablaregistro']">Consultar los Usuarios Registrados</button>
+  <app-footer></app-footer>
+

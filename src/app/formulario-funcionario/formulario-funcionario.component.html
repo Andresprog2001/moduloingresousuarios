@@ -1,0 +1,126 @@
+<app-nav></app-nav>
+<div *ngIf="load">
+
+  <div class="container3">
+
+    <h5>Datos personales</h5>
+    <h1 class="cs">UNETE!!!
+      <br />
+    </h1>
+
+    <div class="d-flex flex-row bd-highlight mb-3 justify-content-around">
+
+      <div class="datos">
+
+        <h4>
+          <br />
+          Con tus datos encontraremos el programa que se adapte mejor en ti.En breve te
+          llegara a tu correo mas informacion.
+        </h4>
+      </div>
+      <div class="datos2">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+          <div class="d-flex flex-row bd-highlight mb-3">
+
+            <div class="form-group1">
+              <input type="text" class="form-control" formControlName="nombres" placeholder="Nombres"
+                style="width:250px;">
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="apellidos" placeholder="Apellidos"
+                style="width:250px">
+            </div>
+          </div>
+
+          <div class="d-flex flex-row bd-highlight mb-3">
+
+            <div class="form-group1">
+              <input type="text" class="form-control" formControlName="documento" placeholder="Documento"
+                style="width:250px">
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="telefono" placeholder="Telefono"
+                style="width:250px">
+            </div>
+          </div>
+
+          <div class="d-flex flex-row bd-highlight mb-3">
+
+            <div class="form-group1">
+              <input type="email" class="form-control" formControlName="correo" placeholder="Correo" i
+                aria-describedby="emailHelp" style="width:250px">
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="altura" placeholder="Altura" style="width:250px">
+            </div>
+          </div>
+
+
+
+          <div class="d-flex flex-row bd-highlight mb-3">
+
+            <div class="form-group1">
+              <input type="text" class="form-control" formControlName="peso" placeholder="Peso" style="width:250px">
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="edad" placeholder="Edad" style="width:250px">
+            </div>
+
+          </div>
+          <div class="d-flex flex-row bd-highlight mb-3">
+            <button type="submit" class="btn btn-primary" style="height:40px ;margin-left: 50px;">Registrar</button>
+            <div class="boton">
+              <input type="button" class="btn btn-primary" [routerLink]="['/']" value="Volver"
+                style="margin-left: 30px;">
+            </div>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                style="margin-left:30px;margin-bottom: 30px;">
+                Jornada
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Tarde</a>
+                <a class="dropdown-item" href="#">Mañana</a>
+                <a class="dropdown-item" href="#">Mixta</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                style="margin-left:30px;margin-bottom: 30px;">
+                Tipo user
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Usuario</a>
+                <a class="dropdown-item" href="#">Administrador</a>
+              </div>
+            </div>
+
+          </div>
+
+        </form>
+
+
+        <div class="d-flex flex-row bd-highlight mb-3">
+          <div class="form-group1">
+            <input type="button" class="btn btn-primary" [routerLink]="['/actualizardatosaprendiz']"
+              value="Actualiza los datos del aprendiz">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<div *ngIf="!load" class="spinner-border text-primary" role="status">
+  <span class="sr-only"></span>
+</div>
+<app-footer></app-footer>

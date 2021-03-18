@@ -1,0 +1,67 @@
+<app-nav></app-nav>
+<div *ngIf="load">
+    <section id="login" class="mb-5 mt-5">
+        <div class="container">
+            <h1 style="color: rgb(255, 123, 0); text-align: center;">Registro entrada y salida del establecimiento deportivo<br><br></h1>
+            <h5>Aqui podrá registrar el ingreso y salida de los usuarios ya registrados</h5>
+            <h5>también podrá acceder a las tablas de ingreso y registro de usuarios.</h5><br>
+            <div class="row">
+                <img src="../static/images/logo.jpeg" class="img-fluid col-sm-4 mx-auto">
+                <div class="col-xs-12 col-sm-6 col-md-4 mx-auto ">
+                    <div class="card_login">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                                    <h1 class="h3 mb-3 font-weight-normal">Entrada</h1>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName="documento" pattern="[0-9]+"
+                                            placeholder="Documento Usuario ">
+                                            <div *ngIf="form.get('documento').errors && form.get('documento').touched">
+                                                <p *ngIf="form.get('documento').hasError('required')" style="color: red;">
+                                                  Es un campo requerido
+                                                </p>
+                                                <p *ngIf="form.get('documento').hasError('maxlength')" style="color: red;">
+                                                  Te pasaste,maximo deben de ser <br> 15 caracteres
+                                                </p>
+                                                <p *ngIf="form.get('documento').hasError('minlength')" style="color: red;">
+                                                  Te faltan caracteres,el minimo de <br> caracteres son 7
+                                                </p>
+                                                <p *ngIf="form.get('documento').hasError('pattern')" style="color: red;">
+                                                  Error,solo se admiten <br> numeros en este campo
+                                                </p>
+                                              </div>
+                                    </div>
+                                    <div class="btn-group" role="group">
+                                        <button type="submit" class="btn btn-primary btn-md" [disabled]="!form.valid" style="margin-top: 30px;">Entrar al gimnasio</button>
+                                        
+                                    </div>
+                                    <div class="btn-group" role="group">
+                                        <button type="submit" (click)="salirgym()" class="btn btn-primary btn-md" [disabled]="!form.valid" style="margin-left: 20px;margin-top: 30px;">salir del gimnasio</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="d-flex flex-row bd-highlight mb-3 justify-content-around">
+                        <div class="btn-group">
+                            <button class="btn btn-primary" type="button" [routerLink]="['/tablaregistro']">
+                                Consultar Registro
+                            </button>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" type="button" [routerLink]="['/tablaingreso']">
+                                Consultar Ingreso
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div *ngIf="!load" class="text-center">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden"></span>
+    </div>
+</div>
+<app-footer></app-footer>

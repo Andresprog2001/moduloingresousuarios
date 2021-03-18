@@ -1,0 +1,299 @@
+<app-nav></app-nav>
+<!--<div *ngIf="load">-->
+
+  <div class="container3">
+    
+    <h5 style="color: rgb(255, 123, 0);">Datos personales</h5>
+    <h1 class="cs">UNETE!!!
+      <br />
+    </h1>
+
+
+
+
+
+    <div class="d-flex flex-row bd-highlight mb-3 justify-content-around">
+      <div class="datos">
+
+        <h4>
+
+          <br />
+          Con tus datos encontraremos el programa que se adapte mejor en ti.
+        </h4>
+
+        <div class="boton">
+          <input type="button" class="btn btn-primary" [routerLink]="['/']" value="Volver">
+        </div>
+
+      </div>
+
+      <div class="datos2">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+          <div class="d-flex flex-row bd-highlight mb-3">
+
+            <div class="form-group1">
+              <input class="input" [class.is-danger]="form.get('nombres').dirty && form.get('nombres').invalid"
+                type="text" class="form-control" formControlName="nombres" placeholder="Nombres" style="width:250px;">
+              <div *ngIf="form.get('nombres').errors && form.get('nombres').touched">
+                <p *ngIf="form.get('nombres').hasError('required')" style="color: red;">
+                  Es un campo requerido
+                </p>
+                <p *ngIf="form.get('nombres').hasError('maxlength')" style="color: red;">
+                  Te pasaste,maximo deben de ser <br> 25 caracteres
+                </p>
+                <p *ngIf="form.get('nombres').hasError('minlength')" style="color: red;">
+                  Te faltan caracteres,el minimo de <br> caracteres son 4
+                </p>
+                <p *ngIf="form.get('nombres').hasError('pattern')" style="color: red;">
+                  Solo se admiten letras,no numeros<br> ni caracteres especiales
+                </p>
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <input class="input" [class.is-danger]="form.get('apellidos').dirty && form.get('apellidos').invalid"
+                type="text" class="form-control" formControlName="apellidos" placeholder="Apellidos"
+                style="width:250px">
+              <div *ngIf="form.get('apellidos').errors && form.get('apellidos').touched">
+                <p *ngIf="form.get('apellidos').hasError('required')" style="color: red;">
+                  Es un campo requerido
+                </p>
+                <p *ngIf="form.get('apellidos').hasError('maxlength')" style="color: red;">
+                  Te pasaste,maximo deben de ser <br> 25 caracteres
+                </p>
+                <p *ngIf="form.get('apellidos').hasError('minlength')" style="color: red;">
+                  Te faltan caracteres,el minimo de <br> caracteres son 4
+                </p>
+                <p *ngIf="form.get('apellidos').hasError('pattern')" style="color: red;">
+                  Solo se admiten letras,no numeros<br> ni caracteres especiales
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex flex-row bd-highlight mb-3">
+
+            <div class="form-group1">
+              <input type="text" class="form-control" formControlName="documento" placeholder="Documento" pattern="[0-9]+"
+                style="width:250px">
+              <div *ngIf="form.get('documento').errors && form.get('documento').touched">
+                <p *ngIf="form.get('documento').hasError('required')" style="color: red;">
+                  Es un campo requerido
+                </p>
+                <p *ngIf="form.get('documento').hasError('maxlength')" style="color: red;">
+                  Te pasaste,maximo deben de ser <br> 15 caracteres
+                </p>
+                <p *ngIf="form.get('documento').hasError('minlength')" style="color: red;">
+                  Te faltan caracteres,el minimo de <br> caracteres son 7
+                </p>
+                <p *ngIf="form.get('documento').hasError('pattern')" style="color: red;">
+                  Error,solo se admiten <br> numeros en este campo
+                </p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="telefono" placeholder="Telefono" pattern="[0-9]+"
+                style="width:250px">
+              <div *ngIf="form.get('telefono').errors && form.get('telefono').touched">
+                <p *ngIf="form.get('telefono').hasError('required')" style="color: red;">
+                  Es un campo requerido
+                </p>
+                <p *ngIf="form.get('telefono').hasError('maxlength')" style="color: red;">
+                  Te pasaste,maximo deben de ser <br> 10 caracteres
+                </p>
+                <p *ngIf="form.get('telefono').hasError('minlength')" style="color: red;">
+                  Te faltan caracteres,el minimo de <br> caracteres son 7
+                </p>
+                <p *ngIf="form.get('telefono').hasError('pattern')" style="color: red;">
+                  Error,solo se admiten <br> numeros en este campo
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="d-flex flex-row bd-highlight mb-3">
+
+            <div class="form-group1">
+              <input type="email" class="form-control" formControlName="correo" placeholder="Correo" i
+                aria-describedby="emailHelp" style="width:250px">
+              <div *ngIf="form.get('correo').errors && form.get('correo').touched">
+                <p *ngIf="form.get('correo').hasError('required')" style="color: red;">
+                  Es un campo requerido
+                </p>
+                <p *ngIf="form.get('correo').hasError('maxlength')" style="color: red;">
+                  Te pasaste,maximo deben de ser <br> 20 caracteres
+                </p>
+                <p *ngIf="form.get('correo').hasError('email')" style="color: red;">
+                  Ingrese un email valido <br> 
+                </p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="altura" placeholder="Altura" pattern="[0-9-.]+" style="width:250px">
+              <div *ngIf="form.get('altura').errors && form.get('altura').touched ">
+                <p *ngIf="form.get('altura').hasError('required')" style="color: red;">
+                  Es un campo requerido,<br>llenelo correctamente
+                </p>
+                <p *ngIf="form.get('altura').hasError('maxlength')" style="color: red;">
+                  Te pasaste,maximo deben de ser <br> 4 caracteres
+                </p>
+                <p *ngIf="form.get('altura').hasError('minlength')" style="color: red;">
+                  Te faltan caracteres,el minimo de <br> caracteres son 2
+                </p>
+                <p *ngIf="form.get('altura').hasError('pattern')" style="color: red;">
+                  Error,solo se admiten <br> numeros en este campo
+                </p>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="d-flex flex-row bd-highlight mb-3">
+
+
+            <div class="form-group1">
+              <select formControlName="idprograma">
+                <option value="1">ADSI</option>
+                <option value="2">Actividad fisica</option>
+                <option value="3">Animacion en multimedia</option>
+                <option value="4">Analisis en muestras quimicas</option>
+
+
+              </select>
+              <div *ngIf="form.get('idprograma').errors && form.get('idprograma').touched">
+                <p *ngIf="form.get('idprograma').hasError('required')" style="color: red;">
+                  Por favor seleccione un programa
+                </p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="ficha" placeholder="Ficha" pattern="[0-9]+" style="width:250px;margin-left: 15px;">
+              <div *ngIf="form.get('ficha').errors && form.get('ficha').touched">
+                <p *ngIf="form.get('ficha').hasError('required')" style="color: red;padding-left: 10px;">
+                  Es un campo requerido,<br>por favor llenelo correctamente
+                </p>
+                <p *ngIf="form.get('ficha').hasError('maxlength')" style="color: red;padding-left: 10px;">
+                  Te pasaste,maximo deben de ser <br> 25 caracteres
+                </p>
+                <p *ngIf="form.get('ficha').hasError('minlength')" style="color: red;padding-left: 10px;">
+                  Le faltan caracteres,minimo son 6 <br>  
+                </p>
+                <p *ngIf="form.get('ficha').hasError('pattern')" style="color: red;padding-left: 10px;">
+                  Error,solo se admiten <br> numeros en este campo
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="d-flex flex-row bd-highlight mb-3">
+
+            <div class="form-group1">
+              <input type="text" class="form-control" formControlName="peso" placeholder="Peso" pattern="[0-9-.]+" style="width:250px">
+              <div *ngIf="form.get('peso').errors && form.get('peso').touched">
+                <p *ngIf="form.get('peso').hasError('required')" style="color: red;">
+                  Es un campo requerido,<br>por favor llenelo correctamente
+                </p>
+                <p *ngIf="form.get('peso').hasError('maxlength')" style="color: red;">
+                  Te pasaste,maximo deben de ser <br> 4 caracteres
+                </p>
+                <p *ngIf="form.get('peso').hasError('minlength')" style="color: red;">
+                  Error,minimo deben de ser <br> 2 caracteres
+                </p>
+                <p *ngIf="form.get('peso').hasError('pattern')" style="color: red;">
+                  Error,solo se admiten <br> numeros en este campo
+                </p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="edad" placeholder="Edad" pattern="[0-9]+" style="width:250px">
+              <div *ngIf="form.get('edad').errors && form.get('edad').touched">
+                <p *ngIf="form.get('edad').hasError('required')" style="color: red;">
+                  Es un campo requerido,<br>por favor llenelo correctamente
+                </p>
+                <p *ngIf="form.get('edad').hasError('max')" style="color: red;">
+                  Te pasaste,la edad maxima es <br> de 60 años
+                </p>
+                <p *ngIf="form.get('edad').hasError('min')" style="color: red;">
+                  Error,la edad minima es <br> de 14 años
+                </p>
+                <p *ngIf="form.get('edad').hasError('pattern')" style="color: red;">
+                  Error,solo se admiten <br> numeros en este campo
+                </p>
+              </div>
+            </div>
+
+          </div>
+          <div class="d-flex flex-row bd-highlight mb-3">
+            <button type="submit"  class="btn btn-primary"
+              style="height:40px ;">Registrar</button>
+
+            <div style="margin-left: 60px;">
+
+              <select formControlName="jornada">
+                <option value="Diurna">Diurna</option>
+                <option value="Nocturna">Nocturna</option>
+                <option value="Mixta">Mixta</option>
+
+
+              </select>
+              <div *ngIf="form.get('jornada').errors && form.get('jornada').touched">
+                <p *ngIf="form.get('jornada').hasError('required')" style="color: red;">
+                  Por favor seleccione<br> una jornada
+                </p>
+              </div>
+            </div>
+            <div style="margin-left: 30px;">
+
+              <select (change)="cambioRol()" formControlName="tipopersona">
+                <option value="Aprendiz">Aprendiz</option>
+                <option value="Funcionario">Funcionario</option>
+              </select>
+              <div *ngIf="form.get('tipopersona').errors && form.get('tipopersona').touched">
+                <p *ngIf="form.get('tipopersona').hasError('required')" style="color: red;">
+                  Este campo es requerido
+                </p>
+              </div>
+            </div>
+
+            <div style="margin-left: 30px;">
+
+              <select formControlName="tipouser">
+                <option value="Usuario">Usuario</option>
+                <option value="Administrador">Administrador</option>
+
+              </select>
+              <div *ngIf="form.get('tipouser').errors && form.get('tipouser').touched">
+                <p *ngIf="form.get('tipouser').hasError('required')" style="color: red;">
+                  Este campo es requerido
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </form>
+
+
+        
+      </div>
+    </div>
+  </div>
+
+
+  <app-footer></app-footer>
+<!--</div>-->
+<!--<div *ngIf="!load" class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden"></span>
+  </div>
+</div>-->
